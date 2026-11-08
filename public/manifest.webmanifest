@@ -1,0 +1,17 @@
+{
+  "name": "BookFind — где я читал",
+  "short_name": "BookFind",
+  "description": "Фото страницы -> глава, процент, цитата и секунда аудиокниги",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1021",
+  "theme_color": "#0b1021",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

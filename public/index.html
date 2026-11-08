@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b1021" />
+    <meta name="description" content="BookFind — где я читал: фото страницы -> глава, процент, цитата и секунда аудиокниги" />
+    <title>BookFind — где я читал</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>BookFind</h1>
+      <p class="tagline">Где я читал — между бумагой, телефоном и аудио</p>
+    </header>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab is-active" data-tab="locate" role="tab" aria-selected="true">Где я</button>
+      <button class="tab" data-tab="audio" role="tab" aria-selected="false">Аудио</button>
+      <button class="tab" data-tab="library" role="tab" aria-selected="false">Библиотека</button>
+    </nav>
+
+    <main>
+      <section class="panel is-active" data-panel="locate">
+        <div class="field">
+          <label for="book-select">Книга</label>
+          <select id="book-select">
+            <option value="">— сначала загрузите книгу —</option>
+          </select>
+        </div>
+
+        <div class="dropzone" id="dropzone">
+          <input type="file" id="page-photo" accept="image/*" capture="environment" hidden />
+          <p class="dropzone__hint">Фото страницы или скриншот</p>
+          <button class="btn btn--primary" id="pick-photo" type="button">Снять / выбрать фото</button>
+          <p class="muted">или перетащите файл сюда</p>
+        </div>
+
+        <details class="field">
+          <summary>Вставить текст страницы вручную</summary>
+          <textarea id="page-text" rows="5" placeholder="Вставьте абзац со страницы (минимум 5 слов)…"></textarea>
+          <button class="btn" id="locate-text" type="button">Найти по тексту</button>
+        </details>
+
+        <div class="preview" id="locate-preview" hidden>
+          <img id="preview-image" alt="Фото страницы" />
+          <div id="ocr-status" class="muted"></div>
+        </div>
+
+        <div class="result" id="locate-result" hidden></div>
+      </section>
+
+      <section class="panel" data-panel="audio">
+        <div class="field">
+          <label for="yt-url">Ссылка на аудиокнигу (YouTube)</label>
+          <input type="url" id="yt-url" placeholder="https://www.youtube.com/watch?v=…" />
+        </div>
+        <div class="row">
+          <button class="btn btn--primary" id="audio-from-last" type="button">По последней найденной странице</button>
+        </div>
+        <div class="field">
+          <label for="audio-text">…или вставьте фразу, которую слышите</label>
+          <textarea id="audio-text" rows="3" placeholder="Полетел под откос слишком много людей…"></textarea>
+          <button class="btn" id="audio-search-text" type="button">Найти секунду</button>
+        </div>
+        <div class="result" id="audio-result" hidden></div>
+      </section>
+
+      <section class="panel" data-panel="library">
+        <div class="dropzone" id="book-dropzone">
+          <input type="file" id="book-file" accept=".epub,.fb2,.txt" hidden />
+          <p class="dropzone__hint">Загрузить книгу: epub, fb2, txt</p>
+          <button class="btn btn--primary" id="pick-book" type="button">Выбрать файл книги</button>
+        </div>
+        <div id="book-progress" class="muted"></div>
+        <ul class="book-list" id="book-list"></ul>
+
+        <h2 class="section-title">Закладки</h2>
+        <ul class="bookmark-list" id="bookmark-list"></ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span id="health" class="muted">проверяю окружение…</span>
+      <span class="muted">локально, без облака</span>
+    </footer>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

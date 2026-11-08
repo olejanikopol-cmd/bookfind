@@ -1,0 +1,10 @@
+node_modules/
+data/books/
+data/tessdata/
+data/subtitles/
+data/ocr-cache/
+data/bookmarks.json
+data/tmp/
+*.log
+.DS_Store
+.write-probe

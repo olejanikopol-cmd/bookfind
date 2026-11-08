@@ -1,0 +1,20 @@
+{
+  "name": "bookfind",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Локальный сервис «где я читал»: фото или текст страницы -> глава/процент/цитата, и -> секунда аудиокниги на YouTube",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "qrcode": "^1.5.4",
+    "tesseract.js": "^5.1.1"
+  }
+}
